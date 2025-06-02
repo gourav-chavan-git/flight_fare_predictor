@@ -1,0 +1,19 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 80px; /* Ensures space below navbar */
+    padding-bottom: 50px; /* Prevents footer from overlapping content */
+}
+
+.container {
+    flex-grow: 1; /* Allows content to take up available space */
+}
+
+.fixed-top {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flight Price Prediction</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <!-- Main Content -->
+    <div class="container mt-5 pt-5">
+        <div class="card shadow-sm p-4 bg-light">
+            <h2 class="text-center">Predict Your Flight Price</h2>
+            <form action="/predict" method="post">
+                
+                <!-- Airline Selection -->
+                <div class="mb-3">
+                    <label class="form-label">Select Airline:</label>
+                    <select class="form-select" name="airline" required>
+                        <option value="Trujet">Trujet</option>
+                        <option value="SpiceJet">SpiceJet</option>
+                        <option value="Air Asia">Air Asia</option>
+                        <option value="IndiGo">IndiGo</option>
+                        <option value="GoAir">GoAir</option>
+                        <option value="Vistara">Vistara</option>
+                        <option value="Vistara Premium economy">Vistara Premium economy</option>
+                        <option value="Air India">Air India</option>
+                        <option value="Multiple carriers">Multiple carriers</option>
+                        <option value="Multiple carriers Premium economy">Multiple carriers Premium economy</option>
+                        <option value="Jet Airways">Jet Airways</option>
+                        <option value="Jet Airways Business">Jet Airways Business</option>
+                    </select>
+                </div>
+
+                <!-- Source Selection (Only 5 available sources) -->
+                <div class="mb-3">
+                    <label class="form-label">Select Source:</label>
+                    <select class="form-select" name="source" required>
+                        <option value="Banglore">Bangalore</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Mumbai">Mumbai</option>
+                    </select>
+                </div>
+
+                <!-- Destination Selection -->
+                <div class="mb-3">
+                    <label class="form-label">Select Destination:</label>
+                    <select class="form-select" name="destination" required>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Banglore">Bangalore</option>
+                        <option value="Cochin">Cochin</option>
+                    </select>
+                </div>
+
+                <!-- Departure Time -->
+                <div class="mb-3">
+                    <label class="form-label">Departure Time:</label>
+                    <input type="datetime-local" class="form-control" name="dep_time" required>
+                </div>
+
+                <!-- Arrival Time -->
+                <div class="mb-3">
+                    <label class="form-label">Arrival Time:</label>
+                    <input type="datetime-local" class="form-control" name="arr_time" required>
+                </div>
+
+                <!-- Total Stops -->
+                <div class="mb-3">
+                    <label class="form-label">Total Stops:</label>
+                    <select class="form-select" name="total_stops" required>
+                        <option value="non-stop">Non-stop</option>
+                        <option value="1 stop">1 Stop</option>
+                        <option value="2 stops">2 Stops</option>
+                        <option value="3 stops">3 Stops</option>
+                        <option value="4 stops">4 Stops</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">Get Price Estimate</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
